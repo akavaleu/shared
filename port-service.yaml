@@ -1,0 +1,64 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+  namespace: default
+  uid: 228d6cac-627b-4292-8c0d-bc782d3b7258
+  resourceVersion: '8476'
+  creationTimestamp: '2022-05-27T02:23:04Z'
+  labels:
+    app: nginx
+  managedFields:
+    - manager: kubectl-create
+      operation: Update
+      apiVersion: v1
+      time: '2022-05-27T02:23:04Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app: {}
+        f:spec:
+          f:externalTrafficPolicy: {}
+          f:internalTrafficPolicy: {}
+          f:ports: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+    - manager: dashboard
+      operation: Update
+      apiVersion: v1
+      time: '2022-05-27T02:47:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:ports:
+            k:{"port":8080,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:nodePort: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+spec:
+  ports:
+    - name: 80-80
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30108
+  selector:
+    app: nginx
+  clusterIP: 10.103.204.195
+  clusterIPs:
+    - 10.103.204.195
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
